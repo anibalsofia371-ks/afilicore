@@ -10,8 +10,8 @@ const events = [
 ];
 
 const leaders = [
-  { name: "Don Roberto Hernández", role: "Presidente", initials: "RH" },
-  { name: "Sra. María González", role: "Secretaria", initials: "MG" },
+  { name: "Yenny Anibal", role: "Presidente", initials: "RH" },
+  { name: "Laura Gonzalez", role: "Secretaria", initials: "MG" },
   { name: "Juan Martínez", role: "Tesorero", initials: "JM" },
   { name: "Carmen Ruiz", role: "Vocal", initials: "CR" },
 ];
@@ -84,7 +84,7 @@ const Index = () => {
             </p>
             <div className="mt-8 grid grid-cols-2 gap-4">
               {[
-                { icon: Heart, t: "Solidaridad", d: "Faenas y apoyo entre vecinos." },
+                { icon: Heart, t: "Solidaridad", d: "Actividades y apoyo entre vecinos." },
                 { icon: Leaf, t: "Naturaleza", d: "Cuidado de áreas verdes." },
                 { icon: Users, t: "Identidad", d: "Conocemos cada familia." },
                 { icon: Sprout, t: "Futuro", d: "Pensamos en los niños." },
@@ -176,14 +176,14 @@ const Index = () => {
               ¿Eres vecino o quieres conocernos?
             </h2>
             <p className="mt-4 text-cream/80 leading-relaxed">
-              Escríbenos para sumarte a las faenas, proponer una actividad o actualizar
+              Escríbenos para sumarte a los eventos, proponer una actividad o actualizar
               los datos de tu familia en el directorio.
             </p>
           </div>
           <div className="space-y-5">
             {[
               { icon: MapPin, t: "Salón comunitario afilicore", d: "Calle Principal s/n, Sector Norte" },
-              { icon: Phone, t: "+52 555 000 0000", d: "Lunes a viernes, 9:00 – 18:00" },
+              { icon: Phone, t: "+57 320 123 4567", d: "Lunes a viernes, 9:00 am – 6:00 pm" },
               { icon: Mail, t: "hola@afilicore.org", d: "Te respondemos en 24 horas" },
             ].map((c) => (
               <div key={c.t} className="flex gap-4 p-5 rounded-2xl bg-cream/5 border border-cream/10">
