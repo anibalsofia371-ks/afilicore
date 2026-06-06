@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Verde Bosque palette */
+    --background: 60 20% 97%;
+    --foreground: 145 38% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 145 38% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 145 38% 12%;
+
+    --primary: 145 38% 20%;
+    --primary-foreground: 60 30% 96%;
+
+    --secondary: 110 18% 88%;
+    --secondary-foreground: 145 38% 18%;
+
+    --muted: 90 15% 92%;
+    --muted-foreground: 145 12% 38%;
+
+    --accent: 105 24% 58%;
+    --accent-foreground: 145 38% 12%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 60 30% 96%;
+
+    --border: 110 15% 82%;
+    --input: 110 15% 86%;
+    --ring: 145 38% 24%;
+
+    --radius: 0.75rem;
+
+    /* Brand-specific tokens */
+    --forest-deep: 145 47% 14%;
+    --forest: 145 38% 20%;
+    --moss: 130 28% 32%;
+    --sage: 105 24% 58%;
+    --leaf: 100 35% 78%;
+    --cream: 60 30% 96%;
+    --bark: 30 22% 22%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(145 47% 14%) 0%, hsl(145 38% 20%) 45%, hsl(130 28% 32%) 100%);
+    --gradient-leaf: linear-gradient(180deg, hsl(105 24% 58% / 0.15), transparent);
+    --shadow-soft: 0 8px 30px -12px hsl(145 47% 14% / 0.18);
+    --shadow-deep: 0 20px 60px -20px hsl(145 47% 14% / 0.35);
+
+    --sidebar-background: 60 20% 97%;
+    --sidebar-foreground: 145 38% 12%;
+    --sidebar-primary: 145 38% 20%;
+    --sidebar-primary-foreground: 60 30% 96%;
+    --sidebar-accent: 110 18% 88%;
+    --sidebar-accent-foreground: 145 38% 18%;
+    --sidebar-border: 110 15% 82%;
+    --sidebar-ring: 145 38% 24%;
+  }
+
+  .dark {
+    --background: 145 47% 8%;
+    --foreground: 60 30% 96%;
+    --card: 145 40% 11%;
+    --card-foreground: 60 30% 96%;
+    --popover: 145 40% 11%;
+    --popover-foreground: 60 30% 96%;
+    --primary: 105 24% 58%;
+    --primary-foreground: 145 47% 8%;
+    --secondary: 145 30% 18%;
+    --secondary-foreground: 60 30% 96%;
+    --muted: 145 30% 16%;
+    --muted-foreground: 100 15% 70%;
+    --accent: 105 24% 58%;
+    --accent-foreground: 145 47% 8%;
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 60 30% 96%;
+    --border: 145 30% 20%;
+    --input: 145 30% 20%;
+    --ring: 105 24% 58%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: 'Fraunces', Georgia, serif; }
+  .bg-gradient-hero { background: var(--gradient-hero); }
+  .bg-gradient-leaf { background: var(--gradient-leaf); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-deep { box-shadow: var(--shadow-deep); }
+  .text-balance { text-wrap: balance; }
+}

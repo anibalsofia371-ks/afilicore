@@ -1,0 +1,53 @@
+export const households = [
+  {
+    id: "h1",
+    house_number: "Casa 1",
+    address: "Calle Principal #1",
+    notes: "Casa de la esquina con el jardín grande",
+    residents: [
+      { id: "r1", household_id: "h1", full_name: "Roberto Hernández", birth_date: "1965-03-12", phone: "+52 555 111 2233", relationship: "Padre", is_head: true },
+      { id: "r2", household_id: "h1", full_name: "Lucía Hernández", birth_date: "1968-07-21", phone: "+52 555 111 2234", relationship: "Madre", is_head: false },
+      { id: "r3", household_id: "h1", full_name: "Mateo Hernández", birth_date: "2002-01-05", phone: null, relationship: "Hijo", is_head: false },
+    ],
+  },
+  {
+    id: "h2",
+    house_number: "Casa 2",
+    address: "Calle Principal #2",
+    notes: null,
+    residents: [
+      { id: "r4", household_id: "h2", full_name: "María González", birth_date: "1972-11-30", phone: "+52 555 222 3344", relationship: "Madre", is_head: true },
+      { id: "r5", household_id: "h2", full_name: "Sofía González", birth_date: "2005-09-14", phone: null, relationship: "Hija", is_head: false },
+    ],
+  },
+  {
+    id: "h3",
+    house_number: "Casa 7",
+    address: "Callejón del Bosque #7",
+    notes: "Frente al salón comunitario",
+    residents: [
+      { id: "r6", household_id: "h3", full_name: "Juan Martínez", birth_date: "1980-05-02", phone: "+52 555 333 4455", relationship: "Padre", is_head: true },
+      { id: "r7", household_id: "h3", full_name: "Ana Martínez", birth_date: "1982-08-19", phone: "+52 555 333 4456", relationship: "Madre", is_head: false },
+      { id: "r8", household_id: "h3", full_name: "Diego Martínez", birth_date: "2010-12-01", phone: null, relationship: "Hijo", is_head: false },
+      { id: "r9", household_id: "h3", full_name: "Valeria Martínez", birth_date: "2013-04-22", phone: null, relationship: "Hija", is_head: false },
+    ],
+  },
+  {
+    id: "h4",
+    house_number: "Casa 12",
+    address: "Sector Norte #12",
+    notes: null,
+    residents: [
+      { id: "r10", household_id: "h4", full_name: "Carmen Ruiz", birth_date: "1955-02-17", phone: "+52 555 444 5566", relationship: "Abuela", is_head: true },
+    ],
+  },
+  {
+    id: "h4",
+    house_number: "Casa 15",
+    address: "Sector Norte #14",
+    notes: null,
+    residents: [
+      { id: "r10", household_id: "h4", full_name: "Libna de la Espriella", birth_date: "1955-02-17", phone: "+52 555 444 5566", relationship: "Hija", is_head: true },
+    ],
+  },
+];
