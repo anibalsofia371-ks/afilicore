@@ -177,9 +177,9 @@ const Index = () => {
           </div>
           <div className="space-y-5">
             {[
-              { icon: MapPin, t: "Salón comunitario afilicore", d: "Calle Principal s/n, Sector Norte" },
+              { icon: MapPin, t: "Salón comunitario afilicore", d: "Calle Principal, Sector barrio las brisas" },
               { icon: Phone, t: "+57 320 123 4567", d: "Lunes a viernes, 9:00 am – 6:00 pm" },
-              { icon: Mail, t: "hola@afilicore.org", d: "Te respondemos en 24 horas" },
+              { icon: Mail, t: "Afilicore@gmail.com", d: "Te respondemos en 24 horas" },
             ].map((c) => (
               <div key={c.t} className="flex gap-4 p-5 rounded-2xl bg-cream/5 border border-cream/10">
                 <c.icon className="h-5 w-5 text-leaf shrink-0 mt-0.5" />
