@@ -2,16 +2,11 @@ import heroImg from "@/assets/community-hero.jpg";
 import { Header } from "@/components/Header.jsx";
 import { ResidentSearch } from "@/components/ResidentSearch.jsx";
 import { Calendar, Heart, Leaf, Mail, MapPin, Phone, Sprout, Users } from "lucide-react";
-
-const events = [
-  { date: "12 MAY", title: "Asamblea comunitaria", desc: "Reunión mensual en el salón principal a las 7:00 pm." },
-  { date: "25 MAY", title: "Faena de limpieza", desc: "Jornada de limpieza de las áreas verdes y el callejón principal." },
-  { date: "08 JUN", title: "Festival de la cosecha", desc: "Música, comida típica y actividades para los niños." },
-];
+import { events } from "@/data/events.js";
 
 const leaders = [
-  { name: "Yenny Anibal", role: "Presidente", initials: "RH" },
-  { name: "Laura Gonzalez", role: "Secretaria", initials: "MG" },
+  { name: "Yenny Anibal", role: "Presidente", initials: "YA" },
+  { name: "Laura Gonzalez", role: "Secretaria", initials: "LG" },
   { name: "Juan Martínez", role: "Tesorero", initials: "JM" },
   { name: "Carmen Ruiz", role: "Vocal", initials: "CR" },
 ];
@@ -127,7 +122,7 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {events.map((e) => (
-              <div key={e.title} className="rounded-lg border border-border bg-card text-card-foreground shadow-sm p-7 hover:shadow-deep transition-shadow group">
+              <div key={e.title} className="rounded-lg border border-border bg-card text-card-foreground shadow-sm p-7 hover:shadow-xl">
                 <div className="flex items-center gap-3 text-moss">
                   <Calendar className="h-4 w-4" />
                   <span className="font-display text-2xl text-forest-deep tracking-tight">{e.date}</span>
