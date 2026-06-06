@@ -16,9 +16,87 @@ function formatDate(d) {
 
 export const ResidentSearch = () => {
   const [open, setOpen] = useState(false);
+  const [formOpen, setFormOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const households = mockHouseholds;
+  const [households, setHouseholds] = useState(mockHouseholds);
+  const [newResident, setNewResident] = useState({
+    house_number: "",
+    address: "",
+    full_name: "",
+    birth_date: "",
+    phone: "",
+    relationship: "",
+    is_head: false,
+    notes: "",
+  });
+  const [formMessage, setFormMessage] = useState(null);
   const loading = false;
+
+  const resetForm = () => {
+    setNewResident({
+      house_number: "",
+      address: "",
+      full_name: "",
+      birth_date: "",
+      phone: "",
+      relationship: "",
+      is_head: false,
+      notes: "",
+    });
+  };
+
+  const handleFormChange = (field, value) => {
+    setNewResident((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    if (!newResident.full_name.trim() || !newResident.house_number.trim()) {
+      setFormMessage("El nombre y la casa son obligatorios.");
+      return;
+    }
+
+    const houseNumber = newResident.house_number.trim();
+    const householdIndex = households.findIndex(
+      (h) => h.house_number.toLowerCase() === houseNumber.toLowerCase()
+    );
+    const newHouseholdId = `h-${Date.now()}`;
+    const newResidentId = `r-${Date.now()}`;
+    const resident = {
+      id: newResidentId,
+      household_id: householdIndex >= 0 ? households[householdIndex].id : newHouseholdId,
+      full_name: newResident.full_name.trim(),
+      birth_date: newResident.birth_date || null,
+      phone: newResident.phone.trim() || null,
+      relationship: newResident.relationship.trim() || null,
+      is_head: !!newResident.is_head,
+    };
+
+    if (householdIndex >= 0) {
+      const updatedHouseholds = [...households];
+      updatedHouseholds[householdIndex] = {
+        ...updatedHouseholds[householdIndex],
+        address: updatedHouseholds[householdIndex].address || newResident.address.trim(),
+        notes: updatedHouseholds[householdIndex].notes || newResident.notes.trim() || null,
+        residents: [...updatedHouseholds[householdIndex].residents, resident],
+      };
+      setHouseholds(updatedHouseholds);
+    } else {
+      const newHousehold = {
+        id: newHouseholdId,
+        house_number: houseNumber,
+        address: newResident.address.trim() || "—",
+        notes: newResident.notes.trim() || null,
+        residents: [resident],
+      };
+      setHouseholds((current) => [...current, newHousehold]);
+    }
+
+    setFormMessage("Habitante registrado correctamente.");
+    resetForm();
+    setFormOpen(false);
+    setOpen(true);
+  };
 
   const q = query.trim().toLowerCase();
   const filtered = q
@@ -58,6 +136,119 @@ export const ResidentSearch = () => {
         </span>
         <span className="text-sage font-medium text-sm">{open ? "Cerrar" : "Abrir"}</span>
       </button>
+
+      <button
+        onClick={() => setFormOpen((o) => !o)}
+        aria-expanded={formOpen}
+        className="group mt-3 w-full flex items-center justify-between gap-4 px-6 py-5 bg-cream border border-border rounded-2xl shadow-soft hover:shadow-deep transition-all"
+      >
+        <span className="flex items-center gap-3 text-forest-deep">
+          <span className="h-10 w-10 rounded-full bg-forest text-cream flex items-center justify-center">
+            <Users className="h-4 w-4" />
+          </span>
+          <span className="text-left">
+            <span className="block font-display text-lg leading-tight">Registrar habitante</span>
+            <span className="block text-xs text-muted-foreground">Añade a un vecino al directorio de la comunidad</span>
+          </span>
+        </span>
+        <span className="text-sage font-medium text-sm">{formOpen ? "Cerrar" : "Abrir"}</span>
+      </button>
+
+      {formOpen && (
+        <div className="mt-3 bg-card border border-border rounded-2xl shadow-deep p-5 md:p-6 animate-in fade-in slide-in-from-top-2 duration-300">
+          <form onSubmit={handleFormSubmit} className="grid gap-4">
+            {formMessage && (
+              <div className="rounded-xl border border-moss/20 bg-moss/10 px-4 py-3 text-sm text-forest-deep">
+                {formMessage}
+              </div>
+            )}
+            <div className="grid gap-4 md:grid-cols-2">
+              <label className="space-y-2 text-sm text-muted-foreground">
+                <span className="block text-forest-deep font-medium">Casa</span>
+                <input
+                  value={newResident.house_number}
+                  onChange={(e) => handleFormChange("house_number", e.target.value)}
+                  placeholder="Casa 12"
+                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-base text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                />
+              </label>
+              <label className="space-y-2 text-sm text-muted-foreground">
+                <span className="block text-forest-deep font-medium">Dirección</span>
+                <input
+                  value={newResident.address}
+                  onChange={(e) => handleFormChange("address", e.target.value)}
+                  placeholder="Sector Norte #12"
+                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-base text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                />
+              </label>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2">
+              <label className="space-y-2 text-sm text-muted-foreground">
+                <span className="block text-forest-deep font-medium">Nombre completo</span>
+                <input
+                  value={newResident.full_name}
+                  onChange={(e) => handleFormChange("full_name", e.target.value)}
+                  placeholder="María Pérez"
+                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-base text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                />
+              </label>
+              <label className="space-y-2 text-sm text-muted-foreground">
+                <span className="block text-forest-deep font-medium">Fecha de nacimiento</span>
+                <input
+                  type="date"
+                  value={newResident.birth_date}
+                  onChange={(e) => handleFormChange("birth_date", e.target.value)}
+                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-base text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                />
+              </label>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2">
+              <label className="space-y-2 text-sm text-muted-foreground">
+                <span className="block text-forest-deep font-medium">Teléfono</span>
+                <input
+                  value={newResident.phone}
+                  onChange={(e) => handleFormChange("phone", e.target.value)}
+                  placeholder="+52 555 000 0000"
+                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-base text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                />
+              </label>
+              <label className="space-y-2 text-sm text-muted-foreground">
+                <span className="block text-forest-deep font-medium">Parentesco</span>
+                <input
+                  value={newResident.relationship}
+                  onChange={(e) => handleFormChange("relationship", e.target.value)}
+                  placeholder="Madre, Hijo, Abuela"
+                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-base text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                />
+              </label>
+            </div>
+            <label className="flex items-center gap-3 text-sm text-muted-foreground">
+              <input
+                type="checkbox"
+                checked={newResident.is_head}
+                onChange={(e) => handleFormChange("is_head", e.target.checked)}
+                className="h-4 w-4 rounded border-input text-forest focus-visible:ring-2 focus-visible:ring-ring"
+              />
+              <span className="text-forest-deep">Es jefe/a de familia</span>
+            </label>
+            <label className="space-y-2 text-sm text-muted-foreground">
+              <span className="block text-forest-deep font-medium">Notas (opcional)</span>
+              <textarea
+                value={newResident.notes}
+                onChange={(e) => handleFormChange("notes", e.target.value)}
+                placeholder="Ej. vive en el segundo piso"
+                className="w-full min-h-[100px] rounded-md border border-input bg-background px-3 py-2 text-base text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              />
+            </label>
+            <button
+              type="submit"
+              className="inline-flex items-center justify-center rounded-full bg-forest px-5 py-3 text-sm font-semibold text-cream transition hover:bg-forest/90"
+            >
+              Guardar habitante
+            </button>
+          </form>
+        </div>
+      )}
 
       {open && (
         <div className="mt-3 bg-card border border-border rounded-2xl shadow-deep p-5 md:p-6 animate-in fade-in slide-in-from-top-2 duration-300">
