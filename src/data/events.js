@@ -7,4 +7,7 @@ export const events = [
    { date: " 22 JULIO", title: "Vacunacion de mascotas", desc: "Programa de vacunacion para mascotas" },
    { date: "01 AGOSTO", title: "Celebración del dia de la familia", desc: "Premios, sopresas y regalos" },
    { date: "30 SEPTIEMBRE", title: "Taller de primeros auxilios", desc: "Botiquín de primeros auxilios" },
-]
+   { date: "01 OCTUBRE", title: "Taller de psicología", desc: "Escuchar a la comunidad y brindar apoyo emocional" },
+
+  
+];

@@ -5,10 +5,10 @@ import { Calendar, Heart, Leaf, Mail, MapPin, Phone, Sprout, Users } from "lucid
 import { events } from "@/data/events.js";
 
 const leaders = [
-  { name: "Yenny Anibal", role: "Presidente", initials: "YA" },
-  { name: "Laura Gonzalez", role: "Secretaria", initials: "LG" },
-  { name: "Juan Martínez", role: "Tesorero", initials: "JM" },
-  { name: "Carmen Ruiz", role: "Vocal", initials: "CR" },
+  { name: "Yenny Anibal", role: "Presidente", initials: "YA", img: "yenny.jpg" },
+  { name: "Laura Gonzalez", role: "Secretaria", initials: "LG", img: "laura.jpg" },
+  { name: "Juan Martínez", role: "Tesorero", initials: "JM", img: "juan.jpg" },
+  { name: "Carmen Ruiz", role: "Vocal", initials: "CR", img: "carmen.jpg" },
 ];
 
 const Index = () => {
@@ -26,7 +26,7 @@ const Index = () => {
             height={1024}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-forest-deep/80 via-forest-deep/60 to-background" />
+          <div className="absolute inset-0  bg-gradient-to-b from-forest-deep/80 via-forest-deep/60 to-background" />
         </div>
 
         <div className="container relative z-10 pt-20 pb-16 md:pt-32 md:pb-24">
@@ -49,7 +49,7 @@ const Index = () => {
           </div>
 
           <div className="mt-12 grid grid-cols-3 gap-6 max-w-xl">
-            {[
+            {[ 
               { n: "48", l: "Familias" },
               { n: "187", l: "Habitantes" },
               { n: "12", l: "Años unidos" },
@@ -92,7 +92,13 @@ const Index = () => {
             </div>
           </div>
           <div className="relative">
-            <div className="aspect-[4/5] rounded-3xl bg-gradient-hero shadow-deep p-10 flex flex-col justify-end">
+            <div
+              className="aspect-[4/5] rounded-3xl shadow-deep p-10 flex flex-col justify-end bg-cover bg-center"
+              style={{
+                backgroundImage:
+                  "linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.35)), url(/gente.jpg)",
+              }}
+            >
               <blockquote className="font-display text-2xl md:text-3xl text-cream leading-tight text-balance">
                 "la fuerza de una comunidad esta en su gente."
               </blockquote>
@@ -149,7 +155,8 @@ const Index = () => {
             {leaders.map((p) => (
               <div key={p.name} className="text-center group">
                 <div className="aspect-square rounded-2xl bg-gradient-hero flex items-center justify-center mb-4 shadow-soft group-hover:shadow-deep transition-shadow">
-                  <span className="font-display text-5xl text-leaf">{p.initials}</span>
+                  <img src={p.img} alt={p.name} className="h-full w-full object-cover rounded-2xl" />
+ 
                 </div>
                 <p className="font-display text-lg text-forest-deep">{p.name}</p>
                 <p className="text-sm text-moss uppercase tracking-wider">{p.role}</p>
