@@ -72,10 +72,7 @@ const Index = () => {
               Una comunidad construida con manos, historia y cariño.
             </h2>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              afilicore nació hace más de una década cuando un grupo de familias decidió
-              compartir tierras, faenas y sueños. Hoy somos un barrio que se conoce por su
-              nombre, que se ayuda en las buenas y en las difíciles, y que cuida lo que lo
-              rodea: los árboles, el agua y a sus mayores.
+              Esta plataforma surge como un punto de encuentro para la comunidad, donde las ideas, propuestas y necesidades de los vecinos pueden convertirse en acciones concretas. Nuestro objetivo es fomentar la participación, fortalecer la comunicación y contribuir al desarrollo de una comunidad más conectada, organizada y participativa.
             </p>
             <div className="mt-8 grid grid-cols-2 gap-4">
               {[
@@ -97,7 +94,7 @@ const Index = () => {
           <div className="relative">
             <div className="aspect-[4/5] rounded-3xl bg-gradient-hero shadow-deep p-10 flex flex-col justify-end">
               <blockquote className="font-display text-2xl md:text-3xl text-cream leading-tight text-balance">
-                "Aquí no vivimos uno al lado del otro, vivimos uno con el otro: compartiendo el pan, la sombra y el camino."
+                "la fuerza de una comunidad esta en su gente."
               </blockquote>
               <p className="mt-4 text-leaf text-sm">— Voces de afilicore</p>
             </div>
