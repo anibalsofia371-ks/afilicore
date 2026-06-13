@@ -135,16 +135,16 @@ export const Header = () => {
                   </div>
                   <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.description}</p>
                   {item.beneficiaries && (
-                    <label className="mt-4 block text-sm text-muted-foreground">
-                      <span className="block text-forest-deep font-medium">Personas beneficiadas</span>
-                      <select className="mt-2 w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+                    <div className="mt-4 text-sm text-muted-foreground">
+                      <p className="font-medium text-forest-deep">Personas beneficiadas</p>
+                      <ul className="mt-3 list-inside list-disc space-y-2 text-sm text-foreground">
                         {item.beneficiaries.map((name) => (
-                          <option key={name} value={name}>
+                          <li key={name} className="rounded-2xl bg-background/80 px-3 py-2 border border-border">
                             {name}
-                          </option>
+                          </li>
                         ))}
-                      </select>
-                    </label>
+                      </ul>
+                    </div>
                   )}
                 </article>
               ))}
