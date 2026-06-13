@@ -324,7 +324,7 @@ export const households = [
   },
    {
     id: "h4",
-    house_number: "Casa 7",
+    house_number: "Casa 11",
     address: "Sector Norte #16",
     notes: null,
     residents: [
@@ -359,7 +359,7 @@ export const households = [
   },
    {
     id: "h4",
-    house_number: "Casa 11",
+    house_number: "Casa 12",
     address: "Sector Norte #16",
     notes: null,
     residents: [
