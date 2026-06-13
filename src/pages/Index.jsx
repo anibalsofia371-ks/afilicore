@@ -99,10 +99,10 @@ const Index = () => {
                   "linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.35)), url(/gente.jpg)",
               }}
             >
-              <blockquote className="font-display text-2xl md:text-3xl text-cream leading-tight text-balance">
+              <blockquote className="font-display text-3xl md:text-5xl text-cream leading-tight text-balance">
                 "la fuerza de una comunidad esta en su gente."
               </blockquote>
-              <p className="mt-4 text-leaf text-sm">— Voces de afilicore</p>
+              <p className="mt-4 text-cream/90 text-base font-semibold">— Voces de afilicore</p>
             </div>
             <div className="absolute -top-6 -right-6 h-32 w-32 rounded-full bg-leaf/40 blur-2xl -z-0" />
           </div>
