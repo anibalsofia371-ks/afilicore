@@ -50,13 +50,13 @@ const Index = () => {
 
           <div className="mt-12 grid grid-cols-3 gap-6 max-w-xl">
             {[ 
-              { n: "48", l: "Familias" },
-              { n: "187", l: "Habitantes" },
-              { n: "12", l: "Años unidos" },
+              { n: "8", l: "Familias" },
+              { n: "20", l: "Habitantes" },
+              { n: "1", l: "Año unido" },
             ].map((s) => (
               <div key={s.l} className="text-cream">
-                <p className="font-display text-3xl md:text-4xl text-leaf">{s.n}</p>
-                <p className="text-xs uppercase tracking-wider text-cream/70">{s.l}</p>
+                <p className="font-display font-bold text-3xl md:text-4xl text-black">{s.n}</p>
+                <p className="text-xs uppercase tracking-wider text-black">{s.l}</p>
               </div>
             ))}
           </div>
