@@ -14,6 +14,7 @@ const links = [
 export const Header = () => {
   const [pqrsOpen, setPqrsOpen] = useState(false);
   const [newsOpen, setNewsOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState(null);
   const [pqrsForm, setPqrsForm] = useState({
     name: "",
     contact: "",
@@ -68,15 +69,21 @@ export const Header = () => {
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => {
+            const isActive = activeLink === l.label;
+
             if (l.action === "open-pqrs") {
               return (
                 <button
                   key={l.label}
                   type="button"
-                  onClick={() => setPqrsOpen(true)}
-                  className="text-sm font-medium text-foreground/70 hover:text-forest-deep transition-colors"
+                  onClick={() => {
+                    setPqrsOpen(true);
+                    setActiveLink(l.label);
+                  }}
+                  className="group relative inline-flex items-center px-1 py-2 text-sm font-medium text-foreground/70 transition-colors hover:text-forest-deep"
                 >
-                  {l.label}
+                  <span className={`absolute bottom-0 left-0 h-[2px] rounded-full bg-forest-deep transition-all duration-200 ${isActive ? "w-full" : "w-0 group-hover:w-full"}`} />
+                  <span className={isActive ? "text-forest-deep" : ""}>{l.label}</span>
                 </button>
               );
             }
@@ -86,10 +93,14 @@ export const Header = () => {
                 <button
                   key={l.label}
                   type="button"
-                  onClick={() => setNewsOpen(true)}
-                  className="text-sm font-medium text-foreground/70 hover:text-forest-deep transition-colors"
+                  onClick={() => {
+                    setNewsOpen(true);
+                    setActiveLink(l.label);
+                  }}
+                  className="group relative inline-flex items-center px-1 py-2 text-sm font-medium text-foreground/70 transition-colors hover:text-forest-deep"
                 >
-                  {l.label}
+                  <span className={`absolute bottom-0 left-0 h-[2px] rounded-full bg-forest-deep transition-all duration-200 ${isActive ? "w-full" : "w-0 group-hover:w-full"}`} />
+                  <span className={isActive ? "text-forest-deep" : ""}>{l.label}</span>
                 </button>
               );
             }
@@ -98,9 +109,11 @@ export const Header = () => {
               <a
                 key={l.href}
                 href={l.href}
-                className="text-sm font-medium text-foreground/70 hover:text-forest-deep transition-colors"
+                onClick={() => setActiveLink(l.label)}
+                className="group relative inline-flex items-center px-1 py-2 text-sm font-medium text-foreground/70 transition-colors hover:text-forest-deep"
               >
-                {l.label}
+                <span className={`absolute bottom-0 left-0 h-[2px] rounded-full bg-forest-deep transition-all duration-200 ${isActive ? "w-full" : "w-0 group-hover:w-full"}`} />
+                <span className={isActive ? "text-forest-deep" : ""}>{l.label}</span>
               </a>
             );
           })}
