@@ -50,8 +50,8 @@ const Index = () => {
 
           <div className="mt-12 grid grid-cols-3 gap-6 max-w-xl">
             {[ 
-              { n: "8", l: "Familias" },
-              { n: "20", l: "Habitantes" },
+              { n: "12", l: "Familias" },
+              { n: "33", l: "Habitantes" },
               { n: "1", l: "Año unido" },
             ].map((s) => (
               <div key={s.l} className="text-cream">

@@ -165,7 +165,7 @@ export const households = [
       {
         id: "r12",
         household_id: "h4",
-        full_name: "daniela duque",
+        full_name: "Daniela Duque",
         birth_date: "2007 09 12",
         phone: "+57 322 5096 322",
         relationship: "Hija",
@@ -174,7 +174,7 @@ export const households = [
       {
         id: "r13",
         household_id: "h4",
-        full_name: "lina duque",
+        full_name: "Lina Duque",
         birth_date: "2001-02-19",
         phone: "+57 310 534 0620",
         relationship: "Hija",
@@ -191,7 +191,7 @@ export const households = [
       {
         id: "r14",
         household_id: "h4",
-        full_name: "fabiola espinoza",
+        full_name: "Fabiola Espinoza",
         birth_date: "1955-01-23",
         phone: "+57 308 456 7890",
         relationship: "Madre",
@@ -200,7 +200,7 @@ export const households = [
       {
         id: "r15",
         household_id: "h4",
-        full_name: "estephanie espinoza",
+        full_name: "Estephanie Espinoza",
         birth_date: "2002-02-29",
         phone: "+57 304 567 8901",
         relationship: "Hija",
@@ -209,7 +209,7 @@ export const households = [
       {
         id: "r16",
         household_id: "h4",
-        full_name: "andres espinoza",
+        full_name: "Andres Espinoza",
         birth_date: "1955-01-23",
         phone: "+57 309 678 9012",
         relationship: "Hijo",
@@ -226,7 +226,7 @@ export const households = [
       {
         id: "r15",
         household_id: "h4",
-        full_name: "feipe madrigal",
+        full_name: "Felipe Madrigal",
         birth_date: "1956-06-29",
         phone: "+57 308 544 7890",
         relationship: "padre",
@@ -235,7 +235,7 @@ export const households = [
       {
         id: "r16",
         household_id: "h4",
-        full_name: "michael madrigal",
+        full_name: "Michael Madrigal",
         birth_date: "2012-02-25",
         phone: "+57 304 544 7890",
         relationship: "Hijo",
@@ -244,7 +244,7 @@ export const households = [
       {
         id: "r17",
         household_id: "h4",
-        full_name: "michelle madrigal",
+        full_name: "Michelle Madrigal",
         birth_date: "2003-09-27",
         phone: "+57 309 678 9012",
         relationship: "Hija",
@@ -261,7 +261,7 @@ export const households = [
       {
         id: "r15",
         household_id: "h4",
-        full_name: "andrey cruz",
+        full_name: "Andrey Cruz",
         birth_date: "1959-06-29",
         phone: "+57 308 444 7890",
         relationship: "padre",
@@ -270,7 +270,7 @@ export const households = [
       {
         id: "r16",
         household_id: "h4",
-        full_name: "felipe cruz",
+        full_name: "Felipe Cruz",
         birth_date: "2012-08-25",
         phone: "+57 304 444 7890",
         relationship: "Hijo",
@@ -279,7 +279,7 @@ export const households = [
       {
         id: "r17",
         household_id: "h4",
-        full_name: "maria cruz",
+        full_name: "Maria Cruz",
         birth_date: "2008-09-27",
         phone: "+57 304 444 9012",
         relationship: "Hija",
@@ -296,7 +296,7 @@ export const households = [
       {
         id: "r15",
         household_id: "h4",
-        full_name: "vanesa tabares",
+        full_name: "Vanesa Tabares",
         birth_date: "2001-06-29",
         phone: "+57 322 444 7890",
         relationship: "madre",
@@ -305,7 +305,7 @@ export const households = [
       {
         id: "r16",
         household_id: "h4",
-        full_name: "fenando tabares",
+        full_name: "Fernando Tabares",
         birth_date: "2002-02-25",
         phone: "+57 322 544 7090",
         relationship: "Hijo",
@@ -314,7 +314,7 @@ export const households = [
       {
         id: "r17",
         household_id: "h4",
-        full_name: "victor tabares",
+        full_name: "Victor Tabares",
         birth_date: "1999-04-27",
         phone: "+57 309 678 9012",
         relationship: "Hijo",
@@ -331,7 +331,7 @@ export const households = [
       {
         id: "r15",
         household_id: "h4",
-        full_name: "adrian palacios",
+        full_name: "Adrian Palacios",
         birth_date: "1956-01-01",
         phone: "+57 304 544 3490",
         relationship: "padre",
@@ -340,7 +340,7 @@ export const households = [
       {
         id: "r16",
         household_id: "h4",
-        full_name: "marcelo palacios",
+        full_name: "Marcelo Palacios",
         birth_date: "2015-02-15",
         phone: "+57 304 544 3490",
         relationship: "Hijo",
@@ -349,7 +349,7 @@ export const households = [
       {
         id: "r17",
         household_id: "h4",
-        full_name: "michel palacios",
+        full_name: "Michelle Palacios",
         birth_date: "2007-12-27",
         phone: "+57 304 678 1312",
         relationship: "Hija",
@@ -366,7 +366,7 @@ export const households = [
       {
         id: "r15",
         household_id: "h4",
-        full_name: "marcela jimenez",
+        full_name: "Marcela Jimenez",
         birth_date: "1996-06-19",
         phone: "+57 304 518 7990",
         relationship: "madre",
@@ -375,7 +375,7 @@ export const households = [
       {
         id: "r16",
         household_id: "h4",
-        full_name: "maicol jimenez",
+        full_name: "Maicol Jimenez",
         birth_date: "2012-07-30",
         phone: "+57 304 518 7990",
         relationship: "Hijo",
@@ -384,7 +384,7 @@ export const households = [
       {
         id: "r17",
         household_id: "h4",
-        full_name: "fernanda jimenez",
+        full_name: "Fernanda Jimenez",
         birth_date: "2000-10-17",
         phone: "+57 304 678 2212",
         relationship: "Hija",
