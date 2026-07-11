@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Leaf, X } from "lucide-react";
+import { Leaf, Menu, X } from "lucide-react";
 
 const links = [
   { label: "Inicio", href: "#inicio" },
@@ -15,6 +15,7 @@ export const Header = () => {
   const [pqrsOpen, setPqrsOpen] = useState(false);
   const [newsOpen, setNewsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [pqrsForm, setPqrsForm] = useState({
     name: "",
     contact: "",
@@ -60,13 +61,23 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border">
-      <div className="container flex items-center justify-between py-4">
+      <div className="container flex flex-wrap items-center justify-between gap-4 py-4">
         <a href="#inicio" className="flex items-center gap-2 group">
           <span className="h-9 w-9 rounded-full bg-forest text-cream flex items-center justify-center shadow-soft group-hover:rotate-12 transition-transform">
             <Leaf className="h-4 w-4" />
           </span>
           <span className="font-display text-2xl tracking-tight text-forest-deep">afilicore</span>
         </a>
+
+        <button
+          type="button"
+          onClick={() => setMobileMenuOpen((prev) => !prev)}
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/80 text-forest transition hover:bg-secondary/60 md:hidden"
+          aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+        >
+          {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
+
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => {
             const isActive = activeLink === l.label;
@@ -119,6 +130,64 @@ export const Header = () => {
           })}
         </nav>
       </div>
+
+      {mobileMenuOpen && (
+        <div className="border-t border-border bg-background/95 px-4 py-4 md:hidden">
+          <div className="container flex flex-col gap-2">
+            {links.map((l) => {
+              const isActive = activeLink === l.label;
+
+              if (l.action === "open-pqrs") {
+                return (
+                  <button
+                    key={l.label}
+                    type="button"
+                    onClick={() => {
+                      setPqrsOpen(true);
+                      setActiveLink(l.label);
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`rounded-2xl border border-border/80 bg-background/80 px-4 py-3 text-left text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary/60 hover:text-forest-deep ${isActive ? "text-forest-deep" : ""}`}
+                  >
+                    {l.label}
+                  </button>
+                );
+              }
+
+              if (l.action === "open-news") {
+                return (
+                  <button
+                    key={l.label}
+                    type="button"
+                    onClick={() => {
+                      setNewsOpen(true);
+                      setActiveLink(l.label);
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`rounded-2xl border border-border/80 bg-background/80 px-4 py-3 text-left text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary/60 hover:text-forest-deep ${isActive ? "text-forest-deep" : ""}`}
+                  >
+                    {l.label}
+                  </button>
+                );
+              }
+
+              return (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => {
+                    setActiveLink(l.label);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`rounded-2xl border border-border/80 bg-background/80 px-4 py-3 text-left text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary/60 hover:text-forest-deep ${isActive ? "text-forest-deep" : ""}`}
+                >
+                  {l.label}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {newsOpen && (
         <div className="fixed inset-0 z-50 flex min-h-screen items-center justify-center bg-slate-950/80 px-4 py-6">
